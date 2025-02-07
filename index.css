@@ -3,8 +3,8 @@ body {
 }
 
 .envelope-wrapper {
-    height:100;
-    margin-top: 180px;
+    height:380px;
+    
 
 }
 
@@ -27,37 +27,8 @@ body {
     justify-content: center;
     text-align: center;
     flex-wrap: wrap; /* Allow items to wrap on very small screens */
-    gap: 10px; /* Space between wrapped items */
 }
 
-@media screen and (min-width: 1200px) {
-    .valentine {
-        font-size: 70px;
-        padding: 7%;
-    }
-    
-    .count {
-        font-size: 50px;
-        margin: -150px 0 40px;
-    }
-}
-
-/* Medium screens (tablets and smaller desktops) */
-@media screen and (max-width: 1199px) {
-    .valentine {
-        font-size: 50px;
-        padding: 5%;
-    }
-    
-    .count {
-        font-size: 40px;
-        margin: -120px 0 30px;
-    }
-    
-    .countdown {
-        transform: scale(1.5);
-    }
-}
 
 #envelope:hover {
     cursor: pointer;
@@ -81,7 +52,7 @@ body {
 .pocket {
     border-left: 140px solid #f5769e ;
     border-right: 140px solid #f5769e ;
-    border-bottom: 90px solid #ea8eab ;
+    border-bottom: 120px solid #ea8eab ;
     border-top: 90px solid transparent;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
@@ -91,7 +62,7 @@ body {
     position: relative;
     background-color: white;
     width: 90%;
-    height: 95%;
+    height: 110%;
     top: 5%;
     border-radius: 10px;
     box-shadow: 0 2px 26px rgba(0, 0, 0, .12);
@@ -102,7 +73,7 @@ body {
 .letter:after {
     content: "";
     position: absolute;
-    top: 0;
+    top: 10;
     bottom: 0;
     left: 0;
     right: 0;
@@ -127,12 +98,12 @@ body {
 }
 
 .line3 {
-    top: 50%;
+    top: 60%;
     text-align: center;
 }
 
 .line4 {
-    top: 65%;
+    top: 70%;
     bottom: 30%;
     text-align: center;
 }
@@ -150,7 +121,7 @@ body {
 }
 
 .open .letter {
-    transform: translatey(-80px);
+    transform: translatey(-120px);
     transition: transform 0.4s 0.6s ease, z-index 0.6s;
     z-index: 2;
 }
@@ -302,8 +273,6 @@ body {
     padding-top: 15%;
 }
 
-
-
 .time {
     display: flex;
     flex-direction: column;
@@ -319,140 +288,27 @@ body {
     margin: 0 0 5px;
 }
 
-@media screen and (max-width: 768px) {
-    .envelope-wrapper {
-        margin-top: 120px;
+@media( max-width: 680px){
+    .envelope-wrapper{
+        padding-top: 80px;
+        margin-bottom: 60px;
+        height:270px;
     }
-    
-    #envelope {
-        width: 240px;
-        height: 154px;
+    #envelope{
+        transform: scale(0.8);
     }
-    
-    .flap {
-        border-top: 84px solid #f96896;
-        border-left: 120px solid transparent;
-        border-right: 120px solid transparent;
-        border-bottom: 70px solid transparent;
+    .reset{
+        padding-bottom: 25%;
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .pocket {
-        border-left: 120px solid #f5769e;
-        border-right: 120px solid #f5769e;
-        border-bottom: 77px solid #ea8eab;
-        border-top: 77px solid transparent;
+    .count{
+        padding-top: 25%;
+        font-size:40px;
+        margin: -150px 0 10px;
     }
-    
-    .valentine {
-        font-size: 40px;
-        padding: 4%;
-    }
-    
-    .count {
-        font-size: 30px;
-        margin: -100px 0 20px;
-        padding-top: 10%;
-    }
-    
-    .countdown {
-        transform: scale(1.2);
-    }
-    
-    .time {
-        margin: 10px;
-    }
-}
-
-/* Mobile phones */
-@media screen and (max-width: 480px) {
-    .envelope-wrapper {
-        margin-top: 80px;
-    }
-    
-    #envelope {
-        width: 200px;
-        height: 128px;
-    }
-    
-    .flap {
-        border-top: 70px solid #f96896;
-        border-left: 100px solid transparent;
-        border-right: 100px solid transparent;
-        border-bottom: 58px solid transparent;
-    }
-    
-    .pocket {
-        border-left: 100px solid #f5769e;
-        border-right: 100px solid #f5769e;
-        border-bottom: 64px solid #ea8eab;
-        border-top: 64px solid transparent;
-    }
-    
-    .valentine {
-        font-size: 30px;
-        padding: 3%;
-    }
-    
-    .count {
-        font-size: 24px;
-        margin: -80px 0 15px;
-        padding-top: 8%;
-    }
-    
     .countdown {
         transform: scale(1);
     }
-    
-    .time {
-        margin: 8px;
-    }
-    
-    .time h2 {
-        font-size: 28px;
-    }
 }
 
-/* Very small devices */
-@media screen and (max-width: 320px) {
-    .countdown {
-        transform: scale(0.8);
-    }
-    
-    .valentine {
-        font-size: 24px;
-    }
-    
-    .count {
-        font-size: 20px;
-    }
-}
-
-/* Handle landscape orientation */
-@media screen and (max-height: 600px) and (orientation: landscape) {
-    .envelope-wrapper {
-        margin-top: 40px;
-    }
-    
-    .valentine {
-        padding: 2%;
-    }
-    
-    .count {
-        padding-top: 5%;
-    }
-}
-
-/* Adjust animations for devices that prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .open .flap,
-    .close .flap,
-    .open .letter,
-    .close .letter,
-    .countdown-container {
-        transition-duration: 0.1s;
-    }
-    
-    .heart {
-        animation: none;
-    }
-}
