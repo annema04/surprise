@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    background: #000;
+  }
+  
+  .scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(#87ceeb, #f0f8ff);
+    overflow: hidden;
+  }
+  
+  /* Shared parts */
+  .girl, .boy {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 140px;
+  }
+  
+  .girl {
+    left: -80px;
+  }
+  
+  .boy {
+    right: -80px;
+  }
+  
+  .head {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: peachpuff;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .hair {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .girl .hair {
+    background: black;
+    height: 60px;
+    border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
+  }
+  
+  .boy .hair {
+    background: red;
+    height: 20px;
+    border-radius: 20px 20px 5px 5px;
+  }
+  
+  .face::after {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .body {
+    position: relative;
+    width: 100%;
+    height: 100px;
+  }
+  
+  .dress {
+    width: 100%;
+    height: 100%;
+    background: pink;
+    border-radius: 30px;
+  }
+  
+  .shirt {
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+    border-radius: 30px;
+  }
+  
+  .hand {
+    position: absolute;
+    width: 10px;
+    height: 70px;
+    background: peachpuff;
+  }
+  
+  .hand.left {
+    left: -20px;
+  }
+  
+  .hand.right {
+    right: -20px;
+  }
+  .animate_hearts {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+  .animate_heart {
+    position: relative;
+    top:600px;
+    width: 8px;
+    height: 8px;
+    background: #fac1de;
+    transform: rotate(45deg) translate(-50%, -50%) scale(0);
+    transform-origin: center;
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  .animate_heart::before,
+  .animate_heart::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fac1de;
+    border-radius: 50%;
+  }
+  
+  .animate_heart::before {
+    top: -4px;
+    left: 0;
+  }
+  
+  .animate_heart::after {
+    left: -4px;
+    top: 0;
+  }
+  
+  /* Animations */
+  @keyframes girlEnter {
+    to { left: 45vw; }
+  }
+  
+  @keyframes boyEnter {
+    to { right: 45vw; }
+  }
+  
+  @keyframes walkToSea {
+    to { bottom: 30vh; }
+  }
+  
+  @keyframes AnimateheartFill {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(6);
+        opacity: 1;
+      }
+  }
+  /* adapt to media */
+  @media (max-width: 680px) {
+    .girl, .boy {
+      width: 40px;
+      height: 100px;
+    }
+  
+    .head {
+      width: 28px;
+      height: 28px;
+    }
+  
+    .girl .hair {
+      height: 45px;
+    }
+  
+    .boy .hair {
+      height: 15px;
+    }
+  
+    .body {
+      height: 70px;
+    }
+  
+    .dress, .shirt {
+      border-radius: 20px;
+    }
+  
+    .hand {
+      width: 6px;
+      height: 400px;
+    }
+  
+    .hand.left {
+      left: -10px;
+    }
+  
+    .hand.right {
+      right: -10px;
+    }
+  
+    .animate_hearts {
+      top: 100px;
+    }
+  
+    .animate_heart {
+        width: 6px;
+        height: 6px;
+      }
+      
+      .animate_heart::before,
+      .animate_heart::after {
+        width: 6px;
+        height: 6px;
+      }
+      .animate_heart::before {
+        top: -3px;
+        left: 0;
+      }
+      
+      .animate_heart::after {
+        left: -3px;
+        top: 0;
+      }
+      
+
+    }
+    @keyframes AnimateheartFill {
+        0% {
+            transform: scale(60);
+            opacity: 1;
+          }
+        100% {
+          transform: scale(100); /* smaller for mobile */
+          opacity: 1;
+        }
+      }
+    @keyframes girlEnter {
+        to { left: 35vw; }
+    }
+      
+    @keyframes boyEnter {
+        to { right: 35vw; }
+    }
